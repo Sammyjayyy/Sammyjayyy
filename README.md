@@ -13,10 +13,11 @@ This project uses PostgreSQL to analyze a customer dataset from Kaggle. The goal
 
 ## Example Queries
 ```sql
-SELECT gender, AVG(spending_score) AS avg_spending
+1. SELECT gender, AVG(spending_score) AS avg_spending
 FROM customers
 GROUP BY gender;
-SELECT 
+
+2. SELECT 
 	CASE
 		WHEN age BETWEEN 18 AND 25 THEN '18-25'
 		WHEN age BETWEEN 26 AND 35 THEN '26-25'
