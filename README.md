@@ -61,3 +61,24 @@ This query gives deeper insight by combining age group and gender to analyze how
 
 Insight:
 Young adult males (18–25) and adult males (26–35) appear to have the highest spending scores. Female customers in general are more active spenders across all age ranges.
+
+4. Average Spending Score BY Income Range
+SELECT 
+	CASE 
+		WHEN annual_income BETWEEN 0 AND 30000 THEN 'Low'
+		WHEN annual_income BETWEEN 31000 AND 60000 THEN 'Mid'
+		WHEN annual_income BETWEEN 61000 AND 90000 THEN 'Upper-mid'
+		ELSE 'High'
+	END AS income_level,
+	COUNT(*) AS total_customers,
+	AVG(spending_score) AS avg_spending
+FROM customers 
+GROUP BY income_level
+ORDER BY income_level
+Explanation:
+This query categorizes customers based on their income level and shows the average spending score in each group.
+
+Insight:
+The high-income group has the highest average spending score, followed closely by the mid-income group.
+However, the upper-mid group spends less on average, which may signal an opportunity for engagement or a need to investigate further.
+
